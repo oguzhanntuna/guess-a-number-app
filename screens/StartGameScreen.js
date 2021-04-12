@@ -9,9 +9,10 @@ import {
     Alert
 } from 'react-native';
 
-import colors from '../constants/colors';
+import Colors from '../constants/Colors';
 import Card from '../components/Card';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
 
 const StartGameScreen = props => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -36,12 +37,19 @@ const StartGameScreen = props => {
         setConfirmed(true);
         setSelectedNumber(chosenNumber);
         setEnteredValue('');
+        Keyboard.dismiss();
     };
 
     let confirmedOutput;
 
     if (confirmed) {
-        confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>
+        confirmedOutput = (
+            <Card style={styles.summaryContainer}>
+                <Text>You selected</Text>
+                <NumberContainer>{selectedNumber}</NumberContainer>
+                <Button title="START GAME" />
+            </Card>
+        );  
     }
 
     return (
@@ -64,10 +72,10 @@ const StartGameScreen = props => {
                     />
                     <View style={styles.buttonContainer}>
                         <View style={styles.button}>
-                            <Button title="Reset" onPress={resetInputHandler} color={colors.accent} />
+                            <Button title="Reset" onPress={resetInputHandler} color={Colors.accent} />
                         </View>
                         <View style={styles.button} >
-                            <Button title="Confirm" onPress={confirmInputHandler} color={colors.primary} />
+                            <Button title="Confirm" onPress={confirmInputHandler} color={Colors.primary} />
                         </View>
                     </View>
                 </Card>
@@ -104,6 +112,13 @@ const styles = StyleSheet.create({
     input: {
         width: 50,
         textAlign: 'center'
+    },
+    summaryContainer: {
+        marginTop: 20,
+        padding: 20,
+        width: 180,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
