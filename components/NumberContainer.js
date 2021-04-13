@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import Colors from '../constants/Colors';
+import Colors from '../constants/colors';
 
 const NumberContainer = props => {
     return (
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     number: {
-        fontSize: 22,
-        color: Colors.accent
+        color: Colors.accent,
+        fontSize: 20
     }
 });
 
