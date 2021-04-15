@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     summaryContainer: {
         marginTop: 20,
         padding: 20,
-        width: 180,
+        width: 210,
         alignItems: 'center',
         justifyContent: 'center'
     }
